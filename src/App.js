@@ -4,6 +4,7 @@ import Amplify, { API, graphqlOperation } from 'aws-amplify'
 import { createTodo } from './graphql/mutations'
 import { listTodos } from './graphql/queries'
 import { withAuthenticator } from '@aws-amplify/ui-react'
+import { Helmet } from "react-helmet"
 
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
@@ -44,6 +45,10 @@ const App = () => {
 
   return (
     <div style={styles.container}>
+      <Helmet>
+        <title>Wilson - Test Amplify Todo App</title>
+        <meta name="description" content="Wilson's web application" />
+      </Helmet>
       <h2>Amplify Todos</h2>
       <input
         onChange={event => setInput('name', event.target.value)}
